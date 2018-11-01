@@ -2,15 +2,14 @@
 
 import '@babel/polyfill'
 import ReactDOM from 'react-dom'
-import createHashHistory from 'history/createHashHistory'
 import store from './store'
+import history from './history'
 import rootComponent from './react'
 import * as ROUTE_PATTERNS from './constants/routePatterns'
 import prefetchPageData from './modules/prefetchPageData'
 import { routePatternsToArray, parseRoute } from './modules/router'
 
 const routePatterns = routePatternsToArray(ROUTE_PATTERNS)
-const history = createHashHistory()
 
 function handleHistoryChange(location) {
   const [pattern, params] = parseRoute(location.pathname, routePatterns)

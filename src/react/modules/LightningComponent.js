@@ -46,6 +46,8 @@ class LightningComponent extends React.Component {
       return
     }
 
+    if (this.constructor._storeBindings) return
+
     const bindingEntries = Object.entries(storeBindings)
     const _storeBindings = bindingEntries.map(binding => {
       const [stateKey, options] = binding
